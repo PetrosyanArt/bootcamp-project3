@@ -5,6 +5,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Jumbotron from "./components/Jumbotron";
+import FrontPageBeers from "./components/FrontPageBeers";
+
 import {/* getCookie, */ authenticateUser } from "./utils/handleSessions";
 
 const PrivateRoute = ({ component: Component, state: state, ...rest }) => (
@@ -44,7 +47,27 @@ class App extends React.Component {
       <RouterComponent>
         <div>
           <Nav />
+          
+          {/* <Jumbotron /> */}
+          {/* <FrontPageBeers /> */}
           <Switch>
+            <Route
+                exact
+                path="/"
+                render={() =>
+                  <div>
+                    <Jumbotron />
+                    <FrontPageBeers />
+                  </div>}
+              />
+            <Route
+                exact
+                path="/beers"
+                component={Beers}
+              />
+          </Switch>
+
+          {/* <Switch>
             <Route
               exact
               path="/"
@@ -56,7 +79,7 @@ class App extends React.Component {
               path="/signup"
               render={(props) =>
                 <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
-            /> */}
+            />
             <PrivateRoute exact path="/beers" state={this.state} component={Beers} />
             <Route component={NoMatch} />
              <Route path="/" component={Beers} />
@@ -67,8 +90,7 @@ class App extends React.Component {
                 <Beers />}
             />
 
-          </Switch>
-
+          </Switch> */}
         </div>
       </RouterComponent>
 
