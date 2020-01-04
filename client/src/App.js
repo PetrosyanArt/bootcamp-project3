@@ -6,9 +6,10 @@ import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Jumbotron from "./components/Jumbotron";
-import FrontPageBeers from "./components/FrontPageBeers";
+import BeerApi from "./components/FrontPageBeers";
 
 import {/* getCookie, */ authenticateUser } from "./utils/handleSessions";
+import FrontPageBeers from "./components/FrontPageBeers";
 
 const PrivateRoute = ({ component: Component, state: state, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -47,9 +48,6 @@ class App extends React.Component {
       <RouterComponent>
         <div>
           <Nav />
-          
-          {/* <Jumbotron /> */}
-          {/* <FrontPageBeers /> */}
           <Switch>
             <Route
                 exact
@@ -58,6 +56,8 @@ class App extends React.Component {
                   <div>
                     <Jumbotron />
                     <FrontPageBeers />
+                    {/* <FrontPageBeers /> */}
+                    {/* <p>{console.log(FrontPageB)}</p> */}
                   </div>}
               />
             <Route
