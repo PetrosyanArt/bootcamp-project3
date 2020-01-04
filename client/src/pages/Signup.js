@@ -10,7 +10,10 @@ class Signup extends Component {
     email: "",
     username: "",
     password: "",
-    passwordConf: ""
+    passwordConf: "",
+    age: "",
+    favoriteBeer: "",
+    favoriteBeerStyle: ""
   };
 
   componentDidMount() {
@@ -32,7 +35,9 @@ class Signup extends Component {
         email: this.state.email,
         password: this.state.password,
         passwordConf: this.state.passwordConf,
-
+        age: this.state.age,
+        favoriteBeer: this.state.favoriteBeer,
+        favoriteBeerStyle: this.state.favoriteBeerStyle
       })
         .then(res => {
           if(res.status === 200 ){
@@ -67,15 +72,33 @@ class Signup extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="(required)"
+                placeholder="password (required)"
                 type="password"
               />
               <Input
                 value={this.state.passwordConf}
                 onChange={this.handleInputChange}
                 name="passwordConf"
-                placeholder="(required)"
+                placeholder="password confirmation (required)"
                 type="password"
+              />
+              <Input
+                value={this.state.age}
+                onChange={this.handleInputChange}
+                name="age"
+                placeholder="age in years (required)"
+              />
+              <Input
+                value={this.state.favoriteBeer}
+                onChange={this.handleInputChange}
+                name="favoriteBeer"
+                placeholder="favorite beer"
+              />
+              <Input
+                value={this.state.favoriteBeer}
+                onChange={this.handleInputChange}
+                name="favoriteBeerStyle"
+                placeholder="favorite style of beer"
               />
               
               <FormBtn

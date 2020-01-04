@@ -3,13 +3,13 @@ import { StaticRouter, BrowserRouter as Router, Route, Switch, Redirect } from "
 import Beers from "./pages/Beers";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Jumbotron from "./components/Jumbotron";
-import BeerApi from "./components/FrontPageBeers";
+import FrontPageBeers from "./components/FrontPageBeers";
 
 import {/* getCookie, */ authenticateUser } from "./utils/handleSessions";
-import FrontPageBeers from "./components/FrontPageBeers";
 
 const PrivateRoute = ({ component: Component, state: state, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -61,10 +61,32 @@ class App extends React.Component {
                   </div>}
               />
             <Route
-                exact
-                path="/beers"
-                component={Beers}
+              exact
+              path="/beers"
+              render={(props) =>
+                <Beers {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
               />
+            <Route
+              exact
+              path="/signup"
+              render={(props) =>
+                <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
+              />
+            <Route
+              exact
+              path="/login"
+              render={(props) =>
+                <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
+              />
+            <Route
+              exact
+              path="/detail"
+              render={(props) =>
+                <Detail {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
+              />
+            <PrivateRoute exact path="/beers" state={this.state} component={Beers} />
+            <Route component={NoMatch} />
+              <Route path="/" component={Beers} />
           </Switch>
 
           {/* <Switch>
