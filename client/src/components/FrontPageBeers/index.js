@@ -1,8 +1,10 @@
 import React from "react";
+// import BeerApi from "./beersHelper.js";
 
 class FrontPageBeers extends React.Component {
   state = {
-    beerArray: []
+    beerArray: [],
+    test: []
   }
   
   // apiCall = () => {
@@ -13,7 +15,8 @@ class FrontPageBeers extends React.Component {
     .then(response => response.json())
     .then(data => {
       this.setState({
-        beerArray: data.data
+        beerArray: data.data,
+        test: data
       })
     })
   }
@@ -30,6 +33,7 @@ class FrontPageBeers extends React.Component {
     return(
       <div>
         <h1>Top Beers</h1>
+        {console.log(this.state.test)}
         {this.state.beerArray[1] ? this.state.beerArray[1].name : ""} <br/>
         {this.state.beerArray[2] ? this.state.beerArray[2].name : ""} <br/>
         {this.state.beerArray[3] ? this.state.beerArray[3].name : ""} <br/>
