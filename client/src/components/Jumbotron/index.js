@@ -7,6 +7,7 @@ function Jumbotron({ children }) {
       className="jumbotron"
     >
       {children}
+      <h1>Jumbo</h1>
     </div>
   );
 }
