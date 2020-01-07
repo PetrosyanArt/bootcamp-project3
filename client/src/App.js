@@ -7,8 +7,9 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Jumbotron from "./components/Jumbotron";
+import NewReviews from "./components/NewReviews";
 import FrontPageBeers from "./components/FrontPageBeers";
-import Reviews from "./pages/Reviews";
+import About from "./components/About";
 
 import {/* getCookie, */ authenticateUser } from "./utils/handleSessions";
 
@@ -56,9 +57,9 @@ class App extends React.Component {
                 render={() =>
                   <div>
                     <Jumbotron />
+                    <NewReviews />
                     <FrontPageBeers />
-                    {/* <FrontPageBeers /> */}
-                    {/* <p>{console.log(FrontPageB)}</p> */}
+                    <About />
                   </div>}
               />
             <Route
