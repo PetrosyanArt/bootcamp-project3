@@ -42,6 +42,7 @@ class Login extends Component {
   render() {
     return (
       <Container fluid>
+        <h1 style={{ paddingTop: 70, paddingBottom: 15, color: "#ff6961" }}>Login</h1>
         <Row>
           <Col size="12">
  
@@ -64,7 +65,7 @@ class Login extends Component {
                 disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Beer
+                Submit
               </FormBtn>
             </form>
           </Col>

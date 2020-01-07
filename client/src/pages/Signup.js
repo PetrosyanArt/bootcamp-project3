@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-
 import userAPI from "../utils/userAPI";
 import {  Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
+
 
 class Signup extends Component {
   state = {
@@ -52,10 +52,11 @@ class Signup extends Component {
   render() {
     return (
       <Container fluid>
+        <h1 style={{ paddingTop: 70, paddingBottom: 15, color: "#ff6961" }}>Sign up today!</h1>
         <Row>
           <Col size="12">
  
-            <form>
+            <form className="signUpForm">
               <Input
                 value={this.state.username}
                 onChange={this.handleInputChange}
@@ -105,7 +106,7 @@ class Signup extends Component {
                 // disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
-                signup
+                Sign Up
               </FormBtn>
             </form>
           </Col>
