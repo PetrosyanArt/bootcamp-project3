@@ -8,6 +8,7 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Jumbotron from "./components/Jumbotron";
 import FrontPageBeers from "./components/FrontPageBeers";
+import Reviews from "./pages/Reviews";
 
 import {/* getCookie, */ authenticateUser } from "./utils/handleSessions";
 
@@ -77,6 +78,12 @@ class App extends React.Component {
               path="/login"
               render={(props) =>
                 <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
+              />
+                 <Route
+              exact
+              path="/reviews"
+              component={Reviews}
+                
               />
             <Route
               exact

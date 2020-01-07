@@ -11,8 +11,8 @@ class Beers extends Component {
   state = {
     beers: [],
     title: "",
-    author: "",
-    synopsis: ""
+    brewery: "",
+    review: ""
   };
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class Beers extends Component {
   loadBeers = () => {
     API.getBeers()
       .then(res =>
-        this.setState({ beers: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ beers: res.data, title: "", brewery: "", review: "" })
       )
       .catch(err => console.log(err));
   };
@@ -42,11 +42,11 @@ class Beers extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title && this.state.author) {
+    if (this.state.beer && this.state.brewery) {
       API.saveBeer({
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis
+        beer: this.state.beer,
+        brewery: this.state.brewery,
+        review: this.state.review
       })
         .then(res => this.loadBeers())
         .catch(err => console.log(err));
@@ -59,38 +59,38 @@ class Beers extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>What Beers Should I Drink?</h1>
-            </Jumbotron>
+              <h1>Beer to review</h1>
+              </Jumbotron>
             <form>
               <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
+                name="beer"
+                placeholder="beer (required)"
               />
               <Input
-                value={this.state.author}
+                value={this.state.brewery}
                 onChange={this.handleInputChange}
-                name="author"
-                placeholder="Author (required)"
+                name="brewery"
+                placeholder="brewery (optional)"
               />
               <TextArea
-                value={this.state.synopsis}
+                value={this.state.review}
                 onChange={this.handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
+                name="review"
+                placeholder="review (required)"
               />
               <FormBtn
-                disabled={!(this.state.author && this.state.title)}
+                disabled={!(this.state.brewery && this.state.beer)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Beer
+                Submit Review
               </FormBtn>
             </form>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Beers On My List</h1>
+              <h1>My top beers!</h1>
             </Jumbotron>
             { console.log(this.state.beers)}
             {this.state.beers && this.state.beers.length ? (
@@ -107,7 +107,7 @@ class Beers extends Component {
                 ))}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+              <h3>No Reviews to Display</h3>
             )}
           </Col>
         </Row>
