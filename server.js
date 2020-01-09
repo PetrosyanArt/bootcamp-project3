@@ -34,7 +34,7 @@ app.use(express.json());
 // ssr
 console.log(App);
 const appComponent = ReactDOMServer.renderToString(<App ssr/>)
-console.log(`appComponent: ${appComponent}`);
+// console.log(`appComponent: ${appComponent}`);
 
 const serverRenderer = (req, res, next) => {
 
@@ -45,7 +45,7 @@ const serverRenderer = (req, res, next) => {
     }
     console.log("\n\n\nssr")
     // const app = ReactDOMServer.renderToString(<App />)
-    console.log(`appComponent: ${appComponent}`);
+    // console.log(`appComponent: ${appComponent}`);
     return res.send(
       data.replace(
         '<div id="root"></div>',
@@ -54,7 +54,7 @@ const serverRenderer = (req, res, next) => {
     )
   })
 }
-router.use("^/$", serverRenderer)
+// router.use("^/$", serverRenderer)
 
 // router.use(
 //   express.static(path.resolve(__dirname, 'client/build'), { maxAge: '30d' })

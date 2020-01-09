@@ -1,42 +1,101 @@
 import React from "react";
-import './style.css';
+import "./style.css";
+import axios from 'axios';
+import { Spinner } from "reactstrap";
 
-function Nav() {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{ zIndex: 100 }}>
-      <a className="navbar-brand" href="/">Cap Collector</a>
+class Nav extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      value: ""
+    };
+    
+  }
+  handleFormChange= (e) => {
+    console.log(e.target.value);
+    this.setState({value:e.target.value})
+    console.log("form change")
+  }
+  handleFormSubmit = (e) => {
+    e.preventDefault()
+    console.log('submit')
+    axios.get('/api/beers/' + this.state.value)
+      .then(response =>
+        {
+          console.log(response.data.data);
+          this.props.popResults(response.data.data)
+          // this.setState({results:response.data.data})
+        })
+        .catch(e => console.log(e))
+  }
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  render() {
+    return (
+      <nav
+        className="navbar navbar-expand-lg navbar-dark bg-dark"
+        style={{ zIndex: 100 }}
+      >
+        <a className="navbar-brand" href="/">
+          Cap Collector
+        </a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/signup">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/beers">Beers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/detail">Detail</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/detail">Reviews</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-  );
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">
+                Sign Up
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">
+                Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/beers">
+                Beers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/detail">
+                Detail
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/detail">
+                Reviews
+              </a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              value={this.state.value} 
+              onChange={this.handleFormChange}
+            />
+            <button class="btn btn-secondary my-2 my-sm-0" onClick={this.handleFormSubmit} type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+    );
+  }
 }
 
 export default Nav;
-
-
