@@ -1,10 +1,10 @@
 import React from "react";
 import { StaticRouter, BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import Beers from "./pages/Beers";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
+import NewReview from "./pages/NewReview";
 import Nav from "./components/Nav";
 import Jumbotron from "./components/Jumbotron";
 import NewReviews from "./components/NewReviews";
@@ -65,12 +65,6 @@ class App extends React.Component {
               />
             <Route
               exact
-              path="/beers"
-              render={(props) =>
-                <Beers {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
-              />
-            <Route
-              exact
               path="/signup"
               render={(props) =>
                 <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
@@ -85,37 +79,16 @@ class App extends React.Component {
               exact
               path="/detail"
               render={(props) =>
-                <Detail {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
+                <Detail {...props}/>}
               />
-            <PrivateRoute exact path="/beers" state={this.state} component={Beers} />
+            <Route
+              exact
+              path="/newreview"
+              render={(props) =>
+                <NewReview {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
+              />
             <Route component={NoMatch} />
-              <Route path="/" component={Beers} />
           </Switch>
-
-          {/* <Switch>
-            <Route
-              exact
-              path="/"
-              render={(props) =>
-                <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
-            />
-            <Route
-              exact
-              path="/signup"
-              render={(props) =>
-                <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
-            />
-            <PrivateRoute exact path="/beers" state={this.state} component={Beers} />
-            <Route component={NoMatch} />
-             <Route path="/" component={Beers} />
-            <Route
-              exact
-              path="/"
-              render={() =>
-                <Beers />}
-            />
-
-          </Switch> */}
         </div>
       </RouterComponent>
 
