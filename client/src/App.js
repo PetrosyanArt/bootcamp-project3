@@ -11,7 +11,6 @@ import NewReviews from "./components/NewReviews";
 import FrontPageBeers from "./components/FrontPageBeers";
 import About from "./components/About";
 
-
 import {/* getCookie, */ authenticateUser } from "./utils/handleSessions";
 
 const PrivateRoute = ({ component: Component, state: state, ...rest }) => (
@@ -74,6 +73,12 @@ class App extends React.Component {
               path="/login"
               render={(props) =>
                 <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
+              />
+                 <Route
+              exact
+              path="/reviews"
+              component={Reviews}
+                
               />
             <Route
               exact
