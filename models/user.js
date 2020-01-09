@@ -16,7 +16,17 @@ var UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: true
+  },
+  age: {
+    type: Number,
+    required: true
+  },
+  favoriteBeer: {
+    type: String
+  },
+  favoriteBeerType: {
+    type: String
   }
 });
 

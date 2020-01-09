@@ -6,6 +6,10 @@ router.route("/")
   .get(beersController.findAll)
   .post(beersController.create);
 
+  // Matches with "/api/beers/:query"
+router.route("/:query")
+.get(beersController.search)
+
 // Matches with "/api/beers/:id"
 router
   .route("/:id")
