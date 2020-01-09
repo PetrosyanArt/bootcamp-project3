@@ -14,4 +14,6 @@ router.route("/")
   .post(userController.login);
 
 // TO-DO: logout route (delete cookie and session - req.session.destroy)
+router.route("/logout")
+  .delete(userController.logout);
 module.exports = router;

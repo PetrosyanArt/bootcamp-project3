@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const router = require("express").Router();
 
@@ -10,10 +11,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 var session = require('express-session')
 
-// ssr
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import App from './client/src/App';
+// // ssr
+// import React from 'react';
+// import ReactDOMServer from 'react-dom/server';
+// import App from './client/src/App';
 
 
 //logs
@@ -32,8 +33,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // ssr
-console.log(App);
-const appComponent = ReactDOMServer.renderToString(<App ssr/>)
+
+// console.log(App);
+// const appComponent = ReactDOMServer.renderToString(<App ssr/>)
+
+// console.log(App);
+// const appComponent = ReactDOMServer.renderToString(<App ssr/>)
+
 // console.log(`appComponent: ${appComponent}`);
 
 const serverRenderer = (req, res, next) => {
@@ -70,7 +76,7 @@ app.use(router);
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mern-auth");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/CapCollector");
 
 // Start the API server
 app.listen(PORT, function () {

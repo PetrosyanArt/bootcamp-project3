@@ -16,8 +16,7 @@ class Signup extends Component {
     favoriteBeerStyle: ""
   };
 
-  componentDidMount() {
-  }
+  componentDidMount(){ }
 
   
   handleInputChange = event => {
@@ -40,9 +39,10 @@ class Signup extends Component {
         favoriteBeerStyle: this.state.favoriteBeerStyle
       })
         .then(res => {
+          console.log(res);
           if(res.status === 200 ){
             this.props.authenticate();
-            return <Redirect to="/books" />
+            return <Redirect to="/" />
           }
         })
         .catch(err => console.log(err));
@@ -96,7 +96,7 @@ class Signup extends Component {
                 placeholder="favorite beer"
               />
               <Input
-                value={this.state.favoriteBeer}
+                value={this.state.favoriteBeerStyle}
                 onChange={this.handleInputChange}
                 name="favoriteBeerStyle"
                 placeholder="favorite style of beer"
@@ -113,8 +113,7 @@ class Signup extends Component {
           
         </Row>
         {/* redirect on authenticated */}
-        {this.props.authenticated ? <Redirect to='/books'/>: <div></div>}
-
+        {this.props.authenticated ? <Redirect to='/'/> : <div></div>}
 
       </Container>
     );

@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
+import NewReview from "./pages/NewReview";
 import Nav from "./components/Nav";
 import Jumbotron from "./components/Jumbotron";
 import NewReviews from "./components/NewReviews";
@@ -63,7 +64,7 @@ class App extends React.Component {
       .catch(err => console.log(err));
 
   componentWillMount() {
-    // this.authenticate();
+    this.authenticate();
   }
 
   render() {
@@ -97,6 +98,7 @@ class App extends React.Component {
             />
             <Route
               exact
+
               path="/signup"
               render={props => (
                 <Signup
@@ -147,11 +149,10 @@ class App extends React.Component {
             />
             <Route
               exact
-              path="/signup"
+              path="/newreview"
               render={(props) =>
-                <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
-            />
-            <PrivateRoute exact path="/beers" state={this.state} component={Beers} />
+                <NewReview {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />}
+              />
             <Route component={NoMatch} />
              <Route path="/" component={Beers} />
             <Route

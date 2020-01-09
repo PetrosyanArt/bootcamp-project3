@@ -8,12 +8,14 @@ module.exports = {
     if (req.body.email &&
       req.body.username &&
       req.body.password &&
-      req.body.passwordConf) {
+      req.body.passwordConf &&
+      req.body.age) {
       //create data
       const userData = {
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,
+        age: req.body.age,
       }
       db.User
         .create(userData)
@@ -58,5 +60,13 @@ module.exports = {
     return req.session.user 
       ? res.status(200).json(req.session.user)
       : res.status(401).json('Not authorized! Please sign in.');
+  },
+
+  logout: function( req, res, next) {
+    console.log("logout");
+
+    return req.session.user
+      ? res.status(200).json(req.session.destroy)
+      : res.status(401).json("Your are logged out");
   }
 };
