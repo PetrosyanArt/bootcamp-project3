@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Card from '../components/Card';
 
 class SearchResults extends Component {
   constructor(props) {
@@ -11,7 +12,9 @@ class SearchResults extends Component {
     });
     this.setState({ beer: result });
   }
-
+  closeDetail = () =>{
+    this.setState({beer: ""})
+  }
   render() {
     return (
       <div>
@@ -19,20 +22,14 @@ class SearchResults extends Component {
           ? this.props.results.map(beer => {
               return (
                 <div onClick={() => this.beerDetail(beer.id)}>
-                  <div>{beer.name}</div>
+                  <div>{beer.name}</div>    
                 </div>
               );
             })
           : ""}
 
         {this.state.beer ? (
-          <div>
-            <br />
-            <br />
-            <br />
-            <br />
-            {this.state.beer.name}
-          </div>
+         <Card onClose={this.closeDetail} theBeer={this.state.beer}/>
         ) : (
           ""
         )}
