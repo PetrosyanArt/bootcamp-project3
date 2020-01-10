@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Container, Row, Col, Card, CardImg,
+  CardText, CardBody, CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 class SearchResults extends Component {
   constructor(props) {
@@ -14,13 +17,27 @@ class SearchResults extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ marginTop: 120, marginLeft: 20, marginRight: 20, marginBottom: 50 }}>
+        <Row>
         {this.props.results.length > 0 && !this.state.beer
           ? this.props.results.map(beer => {
               return (
-                <div onClick={() => this.beerDetail(beer.id)}>
-                  <div>{beer.name}</div>
-                </div>
+                <Col lg="3" sm="6" onClick={() => this.beerDetail(beer.id)} >
+                  <Card style={{ marginBottom: 10 }}>
+                    <CardBody>
+                      <CardImg top width="100%" src={ beer.labels && beer.labels.medium 
+                        ? beer.labels.medium 
+                        : 'https://images.pexels.com/photos/105017/pexels-photo-105017.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'} 
+                        alt="Card image cap" style={{ objectFit: "cover", width: 200, textAlign: "center" }} />
+                      <CardTitle style={{ color: "#ff6961", fontSize: 20, marginTop: 10 }}>{beer.name}</CardTitle>
+                      <CardText style={{ fontWeight: 200, marginTop: 5 }}>{beer.style.shortName}</CardText>
+                      <CardText style={{ fontWeight: 200, marginTop: 1 }}>ABV: {beer.abv}</CardText>
+                      <CardText style={{ fontWeight: 200, marginTop: 1 }}>Availability: { beer.available 
+                        ? beer.available.name 
+                        : "Unknown" }</CardText>
+                    </CardBody>
+                  </Card>
+                </Col>
               );
             })
           : ""}
@@ -36,6 +53,7 @@ class SearchResults extends Component {
         ) : (
           ""
         )}
+        </Row>
       </div>
     );
   }
