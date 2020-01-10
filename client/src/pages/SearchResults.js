@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col, Card, CardImg,
   CardText, CardBody, CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import CardDetail from "../components/Card";
 
 class SearchResults extends Component {
   constructor(props) {
@@ -13,6 +14,10 @@ class SearchResults extends Component {
       return beer.id === id;
     });
     this.setState({ beer: result });
+  }
+
+  closeDetail = () => {
+    this.setState ({ beer: "" })
   }
 
   render() {
@@ -43,13 +48,7 @@ class SearchResults extends Component {
           : ""}
 
         {this.state.beer ? (
-          <div>
-            <br />
-            <br />
-            <br />
-            <br />
-            {this.state.beer.name}
-          </div>
+          <CardDetail onClose={ this.closeDetail } theBeer={ this.state.beer } />
         ) : (
           ""
         )}
