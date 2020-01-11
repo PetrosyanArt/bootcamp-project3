@@ -38,7 +38,7 @@ module.exports = {
   search: function(req, res) {
     console.log("beer search")
     console.log(req.params.query);
-    axios.get('https://api.brewerydb.com/v2/search?key=9187ee928d7e9191b4fd7a090a344578&q=' + req.params.query)
+    axios.get('https://api.brewerydb.com/v2/search?key=6d66b737226cdd5d6f16d4a6dff7f012&q=' + req.params.query)
       .then(response => {
         console.log(response)
         res.json(response.data)
