@@ -5,35 +5,46 @@ import { Container, Row, Col } from 'reactstrap';
 class About extends React.Component {
     render() {
         return (
-            <div className="about-section" style={{ backgroundColor: "#ffeeed", paddingTop: 50, paddingBottom: 50, marginTop: 35 }}>
+            <div style={{ textAlign: "center" }}>
+            <div style={{ backgroundColor: "#ffeeed", paddingTop: 100, paddingBottom: 100 }}>
                 <Container>
-                    <h1 style={{ color: "#ff6961", paddingBottom: 20 }}><b>About</b></h1>
-                    <div style={{ textAlign: "center" }}>
+                    <h1 style={{ color: "#ff6961", paddingBottom: 20 }}><b>Discover New Beers</b></h1>
+                    <Row style={{ fontSize: "20px" }}>
+                        <Col>
+                            <p>Read what other people are recommending</p>
+                        </Col>
+                        <Col>
+                            <p>Find hidden gems from people as passionate about beer as you are</p>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+            <div style={{ paddingTop: 100, paddingBottom: 100 }}>
+                <Container>
+                    <h1 style={{ color: "#ff6961", paddingBottom: 20 }}><b>Rate and Review</b></h1>
+                    <Row style={{ fontSize: "20px" }}>
+                        <Col>
+                            <p>Be adventurous. Get out there and try new beers to let the world know what you think</p>
+                        </Col>
+                        <Col>
+                            <p>Tell others what you liked, didn't like, etc.</p>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+            <div style={{ backgroundColor: "#ffeeed", paddingTop: 100, paddingBottom: 100 }}>
+                <Container>
+                    <h1 style={{ color: "#ff6961", paddingBottom: 20 }}><b>Brought to you by:</b></h1>
+                    <div style={{ fontSize: 30 }}>
                         <Row style={{ paddingLeft: 30 }}>
-                            <p>Cap Collector is a community where you and your peers can post real, no-nonsense reviews of the beers you love, hate, and everything inbetween.</p>
-                        </Row>
-                        <Row style={{ paddingLeft: 30 }}>
-                            <h4 style={{ paddingTop: 10 }}>Why should I join?</h4>
-                        </Row>
-                        <Row style={{ paddingLeft: 30 }}>
-                            <ul>
-                                <li>I love beer and want to explore new kinds.</li>
-                                <li>The knowledge I already have is immense. Must share!</li>
-                                <li>People who drink beer are cool and I want to meet them.</li>
-                            </ul>
-                        </Row>
-                        <Row style={{ paddingLeft: 30 }}>
-                            <h4 style={{ paddingTop: 10 }}>Cap Collector is brought to you by:</h4>
-                        </Row>
-                        <Row style={{ paddingLeft: 30 }}>
-                            <Col style={{ marginLeft: 10, marginRight: 10, paddingTop: 20, border: "solid 2px #ff6961", verticalAlign: "middle", borderRadius: 100, height: 100, width: 100 }}>Derek Stewart<br/>Developer</Col>
-                            <Col style={{ marginLeft: 10, marginRight: 10, paddingTop: 20, border: "solid 2px #ff6961", verticalAlign: "middle", borderRadius: 100, height: 100, width: 100 }}>Art Petrosyan<br/>Developer</Col>                            
-                            <Col style={{ marginLeft: 10, marginRight: 10, paddingTop: 20, border: "solid 2px #ff6961", verticalAlign: "middle", borderRadius: 100, height: 100, width: 100 }}>Angel Martinez<br/>Developer</Col>                            
-                            <Col style={{ marginLeft: 10, marginRight: 10, paddingTop: 20, border: "solid 2px #ff6961", verticalAlign: "middle", borderRadius: 100, height: 100, width: 100 }}>Tom Rennhack<br/>Developer</Col>
+                            <Col>Art Petrosyan</Col>
+                            <Col>Derek Stewart</Col>
+                            <Col>Tom Rennhack</Col>
+                            <Col>Angel Martinez</Col>
                         </Row>
                     </div>
                 </Container>
-                
+            </div>
             </div>
         )
     }

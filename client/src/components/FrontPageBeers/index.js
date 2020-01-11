@@ -59,7 +59,7 @@ class FrontPageBeers extends React.Component {
     
     // return beers
     return(
-    <div style={{ paddingTop: 50, paddingBottom: 50 }}>
+    <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: "center" }}>
       <Container style={{ marginLeft: "auto", marginRight: "auto" }}>
         <h1 style={{ color: "#ff6961", paddingBottom: 20 }}><b>Beers</b></h1>
         <Row style={{ textAlign: "center" }}>
