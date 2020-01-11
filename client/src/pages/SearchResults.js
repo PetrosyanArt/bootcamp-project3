@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Card, CardImg,
-  CardText, CardBody, CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 import CardDetail from "../components/Card";
 
 class SearchResults extends Component {

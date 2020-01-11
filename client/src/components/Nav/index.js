@@ -55,27 +55,12 @@ class Nav extends React.Component {
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="nav-link" href="/signup">
-                Sign Up
+                Create Account
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/login">
-                Login
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/beers">
-                Beers
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/detail">
-                Detail
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/detail">
-                Reviews
+                Sign In
               </a>
             </li>
           </ul>
@@ -83,7 +68,7 @@ class Nav extends React.Component {
             <input
               class="form-control mr-sm-2"
               type="search"
-              placeholder="Search"
+              placeholder="Search for beers"
               aria-label="Search"
               value={this.state.value} 
               onChange={this.handleFormChange}
